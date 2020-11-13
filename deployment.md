@@ -1,0 +1,9 @@
+# 部署方法
++ 注册微信公众平台，获取APPID
++ 从GitHub上下载源代码
++ 将整个源文件夹导入微信开发者工具，在导入的同时更改APPID为自己的APPID。
++ 小程序使用CloudBase云服务，需要一个云服务环境
++ 云服务环境里面创建packages和comment两个集合
++ 设置packages和comment云数据库访问权限为所有用户可读写
++ 打开微信开发者工具，导入项目，同步cloudfunctions目录下的云函数并安装依赖，涉及的云函数有login，imagesec，textsec
++ 导入成功后上传代码提交审核即可

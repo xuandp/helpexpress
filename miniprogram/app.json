@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/packages/packages",
+    "pages/add/add",
+    "pages/detail/detail",
+    "pages/chat/chat",
+    "pages/me/me",
+    "pages/chatdetail/chatdetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#33CC00",
+    "navigationBarTitleText": "快递代取",
+    "navigationBarTextStyle": "black"
+  },
+  "cloud": true,
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#6e6e6e",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "会话",
+        "iconPath": "images/menu/chat.png",
+        "selectedIconPath": "images/menu/chat_active.png"
+      },
+      {
+        "pagePath": "pages/packages/packages",
+        "text": "快递",
+        "iconPath": "images/menu/contact.png",
+        "selectedIconPath": "images/menu/contact_active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我",
+        "iconPath": "images/menu/me.png",
+        "selectedIconPath": "images/menu/me_active.png"
+      }
+    ]
+  }
+}

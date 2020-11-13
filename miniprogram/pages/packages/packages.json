@@ -1,0 +1,5 @@
+{
+    "enablePullDownRefresh": true,
+    "disableScroll":true,
+    "navigationBarTitleText": "待取列表"
+}

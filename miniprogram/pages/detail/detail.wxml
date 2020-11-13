@@ -1,0 +1,48 @@
+<view class="item">
+	<view class="item-author">
+		<image class="item-author-img" src="{{item.authorimg}}"></image>
+		<view class="item-author-name">{{item.authorname}}</view>
+	</view>
+	<view class="item-text" bindtap="todetail" data-item="{{item}}">
+		<text>{{item.package_remarks}}</text>
+	</view>
+	<view class="images">
+		<image class='image' mode="aspectFill" wx:for="{{item.package_photos}}" wx:for-item="img" wx:key="index"
+			src="{{img}}" bindtap="previewimg" data-url="{{img}}"></image>
+	</view>
+
+	<view class="text-info">包裹名：{{item.package_name}}</view>
+	<view class="text-info">取件点：{{item.package_address}}</view>
+	<view class="text-info">取件码：{{item.package_code}}</view>
+	<view class="text-info">备注：{{item.package_remarks}}</view>
+	<view class="text-info">唯一id：{{item._id}}</view>
+	<view class="text-info">openid：{{item._openid}}</view>
+	<view class="text-info">时间：{{item.str_date}}</view>
+
+	<view class="item-info">
+		<view class="item-info-time">{{item.relativetime}}</view>
+		<view class='item-info-delete' wx:if="{{item.authorimg==myimg&&comment.length==0}}" bindtap="removemain"
+			data-item="{{item}}">删除</view>
+		<view>{{comment.length}}评论</view>
+	</view>
+</view>
+<textarea class='text' bindinput="gettext" placeholder="在这里写下你的留言" maxlength='-1' show-confirm-bar='false'
+	value="{{text}}" auto-height />
+<view class="btns">
+<button class="help-btn" open-type="getUserInfo" bindgetuserinfo="helptake"  data-item="{{item}}">
+	帮助他
+</button>
+<button class="comment-btn"  open-type="getUserInfo" bindgetuserinfo="comment" >留言
+</button>
+</view>
+
+<view class="item" wx:for="{{comment}}" wx:key="index">
+	<view class="item-text" bindtap="todetail" data-item="{{item}}" style="margin:0">
+		<text>{{item.content}}</text>
+	</view>
+	<view class="item-info">
+		<view class="item-info-time">{{item.authorname}}</view>
+        <view class='item-info-delete' wx:if="{{item.authorimg==myimg}}" bindtap="removeitem" data-item="{{item}}">删除</view>
+		<view>{{item.date}}</view>
+	</view>
+</view>

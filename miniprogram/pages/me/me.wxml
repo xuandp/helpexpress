@@ -1,0 +1,23 @@
+<!--pages/me/me.wxml-->
+<!-- profile -->
+  <!-- 第一部分 -->
+  <view class="user_info">
+    <view class="user_image_text">
+      <image class="image_radius" src="{{userInfo.avatarUrl}}" />
+      <open-data type="userNickName"></open-data>
+    </view>
+  </view>
+
+
+
+<!-- menu -->
+<view class="menu">
+  <block wx:for="{{menu}}" wx:key="*this">
+    <view class="banner" wx:if="{{item.firstline}}" ></view>
+    <view class="item">
+      <image class="icon" src="/images/{{item.icon}}"></image>
+      <view class="content" bindtap="tohistory">{{item.name}}</view>
+      <view class="more" bindtap="tohistory">></view>
+    </view>
+  </block>
+</view>

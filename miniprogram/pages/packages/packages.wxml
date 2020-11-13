@@ -1,0 +1,33 @@
+<view class="top">
+    <view class="btn-top-box">
+        <button bindtap="lookother" style="background-color: {{backcolor1}};" class="btn-top-left">别人的发布</button>
+        <button bindtap="lookme" style="background-color: {{backcolor2}};" class="btn-top-right">我的发布</button>
+    </view>
+</view>
+
+<view class="list">
+    <view class="item" wx:for="{{items}}" wx:key="index">
+        <view class="item-author">
+            <image class="item-author-img" src="{{item.authorimg}}"></image>
+            <view class="item-author-name">{{item.authorname}}</view>
+            <button  bindtap="todetail" data-item="{{item}}" class="show-detail-btn">查看详情</button>
+        </view>
+        <view class="package-info" bindtap="todetail" data-item="{{item}}">
+            <view class="images">
+                <image class='image' mode="aspectFill" src="{{item.package_photos[0]}}" bindtap="previewimg"
+                    data-url="{{img}}"></image>
+            </view>
+            <view class="package-info-text">
+                <text>包裹名：{{item.package_name}}</text>
+                <text>取件点：{{item.package_address}}</text>
+                <text>取件码：{{item.package_code}}</text>
+            </view>
+        </view>
+        <view class="item-info">
+            <view class="item-info-time">{{item.relativetime}}</view>
+            <view>{{item.package_photos.length==0?'无':item.package_photos.length+'张'}}图片</view>
+        </view>
+    </view>
+    <!-- <view class="tips" type="default" wx:if="{{number>0}}">请在web管理上输入此号码：{{number}}</view> -->
+</view>
+<button bindtap="toAdd" class="btn">我要发布</button>

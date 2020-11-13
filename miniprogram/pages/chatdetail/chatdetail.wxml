@@ -1,0 +1,86 @@
+<view class="item">
+	<view class="item-author">
+		<image class="item-author-img" src="{{item.authorimg}}"></image>
+		<view class="item-author-name">{{item.authorname}}</view>
+	</view>
+	<view class="package-info" bindtap="todetail" data-item="{{item}}">
+		<view class="images">
+			<image class='image' mode="aspectFill" src="{{item.package_photos[0]}}" bindtap="previewimg" data-url="{{img}}">
+			</image>
+		</view>
+		<view class="package-info-text">
+			<text>包裹名：{{item.package_name}}</text>
+			<text>取件点：{{item.package_address}}</text>
+			<text>取件码：{{item.package_code}}</text>
+			<text>拥有人：{{item.authorname}}</text>
+			<text>代拿人：{{item.take_name}}</text>
+		</view>
+	</view>
+	<view class="item-info">
+		<view>当前状态：</view>
+		<view>{{steps[item.flag-2].stepName}}</view>
+	</view>
+</view>
+<!-- <view class="tips" type="default" wx:if="{{number>0}}">请在web管理上输入此号码：{{number}}</view> -->
+
+<view class="steps">
+	<block wx:for="{{steps}}" wx:for-index="index" wx:for-item="item">
+		<view class="step">
+			<image wx:if="{{activeNum>=(index+1)}}" class="img" src="/images/{{activeNum==(index+1)?'is':''}}done.png">
+			</image>
+			<image wx:if="{{activeNum<(index+1)}}" class="img" src="/images/notdone.png"></image>
+			<view class="stepText">{{item.stepName}}</view>
+		</view>
+		<view class="step">
+			<image wx-if="{{(index+1)!=steps.length}}" class="img"
+				src="/images/{{(index+1)<=activeNum?'blueline.png':'greyline.png'}}"></image>
+			<view class="stepText"></view>
+		</view>
+	</block>
+</view>
+
+<view style="margin:50rpx">
+	<progress wx:if="{{item.flag==2}}" percent="5" stroke-width="10" />
+	<progress wx:if="{{item.flag==3}}" percent="35" stroke-width="10" />
+	<progress wx:if="{{item.flag==4}}" percent="65" stroke-width="10" />
+	<progress wx:if="{{item.flag==5}}" percent="100" stroke-width="10" />
+</view>
+
+<view class="step-btn">
+	<button wx:if="{{item.flag-1>1}}" class="sure">已拿取
+	</button>
+	<button wx:elif="{{item.flag-1==1}}" bindtap="increase"
+		class="besure">点击以确认拿到快递</button>
+</view>
+
+<view class="step-btn" wx:if="{{item.flag-1>1}}">
+	<button wx:if="{{item.flag-1>2}}" class="sure">已协商完成收获地点</button>
+	<button wx:elif="{{item.flag-1==2}}" bindtap="increase"
+		class="besure">点击以确认收货地点</button>
+</view>
+
+<view class="step-btn" wx:if="{{item.flag-1>2}}">
+	<button wx:if="{{item.flag-1>3}}" class="sure">拥有者已拿取</button>
+	<button wx:elif="{{item.flag-1==3}}" bindtap="increase"
+		class="besure">点击以确认拿到快递</button>
+</view>
+
+<view class="step-btn">
+	<button wx:if="{{item.flag>4}}" class="sure">全部完成</button>
+</view>
+
+<textarea class='comment-textarea' bindinput="gettext" placeholder="在这里写下你的留言" maxlength='-1' show-confirm-bar='false'
+	value="{{text}}" auto-height />
+<button class="comment-btn"  open-type="getUserInfo" bindgetuserinfo="comment" >留言</button>
+
+<view class="comment_item" wx:for="{{comment}}" wx:key="index">
+	<view class="comment-text" bindtap="todetail" data-item="{{item}}" style="margin:0">
+		<text>{{item.content}}</text>
+	</view>
+	<view class="comment-info">
+		<view class="comment-info-time">{{item.authorname}}</view>
+		<view class='comment-info-delete' wx:if="{{item.authorimg==myimg}}" bindtap="removeitem" data-item="{{item}}">删除
+		</view>
+		<view>{{item.date}}</view>
+	</view>
+</view>
