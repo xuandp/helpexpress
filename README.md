@@ -12,27 +12,27 @@ YNU快递代拿
 ## 项目效果截图
 + 个人界面：用于显示个人信息。
 
-![个人界面](image/me.jpg)
+![个人界面](https://github.com/xuandp/helpexpress/edit/master/image/me.jpg)
 
 + 代取界面：显示需要被代取的列表，可以区分自己上传的任务和别人上传的任务。
 
-![代取界面](image/list.jpg)
+![代取界面](https://github.com/xuandp/helpexpress/edit/master/image/list.jpg)
 
 + 会话界面：显示已经接取的任务。
 
-![会话界面](image/community.jpg)
+![会话界面](https://github.com/xuandp/helpexpress/edit/master/image/community.jpg)
 
 + 状态界面：显示快递的实时信息。
 
-![状态界面](image/state.jpg)
+![状态界面](https://github.com/xuandp/helpexpress/edit/master/image/state.jpg)
 
 + 个人历史：显示已经完成的任务。
 
-![历史界面](image/history.jpg)
+![历史界面](https://github.com/xuandp/helpexpress/edit/master/image/history.jpg)
 
 ## 小程序体验二维码
 
-![二维码](image/link.jpg)
+![二维码](https://github.com/xuandp/helpexpress/edit/master/image/link.jpg)
 
 ## License
 This little program is open source software licensed as MIT.
